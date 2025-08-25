@@ -26,5 +26,20 @@ namespace FortuneTeller
         {
 
         }
+
+        private void 상담내역불러오기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 끝내기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void 포츈텔러정보ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
