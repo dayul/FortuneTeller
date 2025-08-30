@@ -29,9 +29,17 @@ namespace FortuneTeller
 
         private void 상담내역불러오기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormHistory form = new FormHistory();
             // 새 창을 실행 시켜도 기존 창 조작 가능
-            form.Show();
+            FormHistory form = Application.OpenForms["FormHistory"] as FormHistory;
+            if(form != null)
+            {
+                form.Activate();    // 최상위로 포커싱
+            }
+            else
+            {
+                form = new FormHistory();
+                form.Show();
+            }
         }
 
         private void 끝내기ToolStripMenuItem_Click(object sender, EventArgs e)
