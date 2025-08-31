@@ -14,10 +14,10 @@ namespace FortuneTeller
     public partial class FormHistory : Form
     {
         List<string> history;
-        Form1 form;
+        Form1 form1;
         public FormHistory(Form1 form)
         {
-            this.form = form;   // Form1의 메소드를 사용할 수 있도록 참조를 저장
+            this.form1 = form;   // Form1의 메소드를 사용할 수 있도록 참조를 저장
             InitializeComponent();
             UpdateHistory();
         }
@@ -53,6 +53,12 @@ namespace FortuneTeller
             LoadHistory();
             lbHistory.Items.Clear();
             lbHistory.Items.AddRange(history.ToArray());
+        }
+
+        private void lbHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string message = history[lbHistory.SelectedIndex];
+            form1.LoadHistory(message);
         }
     }
 }
