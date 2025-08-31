@@ -98,6 +98,26 @@ namespace FortuneTeller
             tbResult.Text = birthday + " " + birthtime + Environment.NewLine
                 + saju + Environment.NewLine
                 + message;
+
+            SaveHistory($"{birthday} {birthtime}|{result}");
+        }
+
+        // 상담 내역 저장
+        private void SaveHistory(string history)
+        {
+            try
+            {
+                string filename = "history.csv";
+                File.AppendAllText(filename, history + Environment.NewLine);
+            }
+            catch(UnauthorizedAccessException ex)
+            {
+                MessageBox.Show($"권한이 없어요. \n{ex.Message}", "파일 권한 오류!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"상담 내역 저장 중 오류가 발생했어요. \n{ex.Message}", "알 수 없는 오류!");
+            }
         }
     }
 }
