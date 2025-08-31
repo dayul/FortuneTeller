@@ -100,6 +100,13 @@ namespace FortuneTeller
                 + message;
 
             SaveHistory($"{birthday} {birthtime}|{result}");
+
+            // 클릭 개선
+            FormHistory form = Application.OpenForms["FormHistory"] as FormHistory;
+            if (form != null)
+            {
+                form.UpdateHistory();
+            }
         }
 
         // 상담 내역 저장
