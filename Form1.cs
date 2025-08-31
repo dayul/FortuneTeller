@@ -86,5 +86,18 @@ namespace FortuneTeller
             // 새 창을 실행 시키면 기존 창 조작 불가능
             form.ShowDialog();
         }
+
+        // 운세 결과 보기 이벤트 핸들러
+        private void btnShowResult_Click(object sender, EventArgs e)
+        {
+            string birthday = tbBirthday.Text;
+            string birthtime = tbBirthtime.Text;
+            string result = GetFortune();
+            string saju = result.Split('|')[0];
+            string message = result.Split('|')[1];
+            tbResult.Text = birthday + " " + birthtime + Environment.NewLine
+                + saju + Environment.NewLine
+                + message;
+        }
     }
 }
